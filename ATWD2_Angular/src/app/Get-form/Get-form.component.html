@@ -1,0 +1,165 @@
+<!-- Modal -->
+<div class="modal fade" id="Search" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <form [formGroup]="GetForm" (ngSubmit)="makeRequest(GetForm.value)"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <br>  
+          <div class="form-row">
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">Route ID</label>
+              <input type="number" class="form-control" 
+              id="Route_ID" 
+              [formControl]="GetForm.controls['Route_ID']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">Bus NAME</label>
+              <input type="text" class="form-control form-control-sm" 
+              id="Bus"
+              [formControl]="GetForm.controls['Bus']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">COMPANY CODE</label>
+              <input type="text" class="form-control form-control-sm" 
+              id="COMPANY" 
+              placeholder="KMB"
+              [formControl]="GetForm.controls['COMPANY']">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Start From</label>
+              <input type="text" class="form-control" 
+              id="Start" 
+              [formControl]="GetForm.controls['Start']">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">End to</label>
+              <input type="text" class="form-control" 
+              id="End" 
+              [formControl]="GetForm.controls['End']">
+            </div>
+          </div> 
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Fee more that</label>
+              <input type="number" class="form-control" 
+              id="Fee"
+              [formControl]="GetForm.controls['Fee']" >
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Fee less that</label>
+              <input type="number" class="form-control" 
+              id="Fee1" 
+              [formControl]="GetForm.controls['Fee1']">
+            </div>
+          </div> 
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="inputPassword4">Stop Location</label>
+              <input type="text" class="form-control" 
+              id="Stop_Location" 
+              [formControl]="GetForm.controls['Stop_Location']">
+            </div>
+          </div> 
+          <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Searchs</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> 
+
+<div class="container-fluid" *ngIf ="resourceID1">
+  <div id="result" class="md-12">
+    <table class='table-responsive table-dark mr-md-12' >
+      <thead><tr>
+      <th scope="col">COMPANY</th>
+      <th scope="col">ROUTE ID</th>
+      <th scope="col">ROUTE NAME</th>
+      <th scope="col">JOURNEY Time</th>
+      <th scope="col">LOC START (Ch)</th>
+      <th scope="col">LOC END (Ch)</th>
+      <th scope="col">LOC START (En)</th>
+      <th scope="col">LOC END (En)</th>
+      <th scope="col">FULL FARE</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Update</th>
+      </tr></thead>
+      <div class="spinner-border text-info" role="status" *ngIf = "loading">
+        <span class="visually-hidden"></span>
+      </div>
+      <tr *ngFor="let item of serverData">
+        <td>{{item.COMPANY_CODE}}</td>
+        <td>{{item.ROUTE_ID}}</td>
+        <td>{{item.ROUTE_NAMEC}}</td>
+        <td>{{item.JOURNEY_TIME}}</td>
+        <td>{{item.LOC_START_NAMEC}}</td>
+        <td>{{item.LOC_END_NAMEC}}</td>
+        <td>{{item.LOC_START_NAMEE}}</td>
+        <td>{{item.LOC_END_NAMEE}}</td>
+        <td>{{item.FULL_FARE}}</td>
+        <td>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#Delete" (click) = "deleteButtonHandler(item.ROUTE_ID)" >
+            Delete
+          </button>
+        </td>
+        <td>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#Update" (click) = "updateButtonHandler(item.ROUTE_ID)">
+            Update
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div> 
+<div class="container-md" *ngIf ="resourceID2">
+  <div id="result" class="md-12">
+    <table class='table-responsive table-dark mr-md-12' >
+      <thead><tr>
+      <th scope="col">Bus</th>
+      <th scope="col">ROUTE_SEQ</th>
+      <th scope="col">ROUTE_ID</th>
+      <th scope="col">STOP_SEQ</th>
+      <th scope="col">STOP_ID</th>
+      <th scope="col">STOP_PICK_DROP</th>
+      <th scope="col">STOP_NAMEC (Ch)</th>
+      <th scope="col">STOP_NAMEE (En)</th>
+      
+      </tr></thead>
+      <div class="spinner-border text-info" role="status" *ngIf = "loading">
+        <span class="visually-hidden"></span>
+      </div>
+      <tr *ngFor="let item of serverData">
+        <td>{{item.Bus}}</td>
+        <td>{{item.ROUTE_SEQ}}</td>
+        <td>{{item.ROUTE_ID}}</td>
+        <td>{{item.STOP_SEQ}}</td>
+        <td>{{item.STOP_ID}}</td>
+        <td>{{item.STOP_PICK_DROP}}</td>
+        <td>{{item.STOP_NAMEC}}</td>
+        <td>{{item.STOP_NAMEE}}</td>
+        <td>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#Delete" (click) = "deleteButtonHandler(item.ROUTE_ID)">
+            Delete
+          </button>
+        </td>
+        
+      </tr>
+    </table>
+  </div>
+</div> 
+

@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">ATWD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <div class="col-sm-auto">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#Search">
+          Search
+        </button>
+      </div>
+      <div class="col-sm-auto">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#Insert">
+          Insert
+        </button>
+      </div>
+      <div class="col-sm-auto">
+        <!-- Button trigger modal 
+        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#Update">
+          Update
+        </button>-->
+      
+        <!-- Button trigger modal 
+        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#Delete">
+          Delete
+        </button>
+      </div>-->
+    </div>
+    </div>
+  </div>
+  <div class="input-group col-sm-5 offset-sm-auto justify-content-md-end">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+    </div>
+    <select class="custom-select" id="resource" onclick="checkRS()">
+      <option value="Routebus">Come to see what route we have~</option>
+      <option value="Routestopbus">Come to see which route or stop bus are you want to know~</option>
+      <!-- <option value="Stopbus">Stopbus</option> -->
+    </select>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row justify-content-md-end">
+</div>
+<app-Get-form [DeletePass]="this.DeletePass" [UpdatePass]="this.UpdatePass" (deleteEvent) = "deleteEventReceiver($event)" (updateEvent)="updateEventReceiver($event)"></app-Get-form>
+<app-Put-form [record] = "this.busRecord" (UloopEvent) = "UloopGet($event)"></app-Put-form>
+<app-Post-form></app-Post-form>
+<app-Delete-form [record] = "this.busRecord" (loopEvent) = "loopGet($event)"></app-Delete-form>
+<br>
+

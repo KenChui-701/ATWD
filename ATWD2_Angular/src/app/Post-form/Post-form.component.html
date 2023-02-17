@@ -1,0 +1,238 @@
+<!-- Modal -->
+<div class="modal fade" id="Insert" tabindex="-2" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <form [formGroup]="InsertForm" (ngSubmit)="makeRequest(InsertForm.value)">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Insert</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-md-8 small">
+              <label for="inputEmail4">ROUTE_ID</label>
+              <input type="number" 
+              class="form-control form-control-sm" 
+              id="INSERT_ROUTE_ID" 
+              min="1"
+              [formControl]="InsertForm.controls['INSERT_ROUTE_ID']">
+            </div>
+          </div>
+          <div class="alert alert-warning d-flex align-items-center" role="alert" 
+          *ngIf = "!InsertForm.controls['INSERT_ROUTE_ID'].valid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+              Please make sure All Input is no empty
+            </div>
+          </div>
+          <br>       
+          <div class="form-row">
+              <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">ROUTE NAME</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_ROUTE_NAMEC"
+              [formControl]="InsertForm.controls['INSERT_ROUTE_NAMEC']">
+            </div>
+              <div class="form-group col-sm-4 small">  
+              <label for="inputEmail4">ROUTE NAME</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_ROUTE_NAMES"
+              [formControl]="InsertForm.controls['INSERT_ROUTE_NAMES']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">ROUTE NAME</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_ROUTE_NAMEE"
+              [formControl]="InsertForm.controls['INSERT_ROUTE_NAMEE']">
+            </div>
+          </div>
+          <div class="alert alert-warning d-flex align-items-center" role="alert" 
+          *ngIf = "!InsertForm.controls['INSERT_ROUTE_NAMEC'].valid || !InsertForm.controls['INSERT_ROUTE_NAMES'].valid || !InsertForm.controls['INSERT_ROUTE_NAMEE'].valid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+              Please make sure All Input is no empty
+            </div>
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">COMPANY_CODE</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_COMPANY_CODE"
+              [formControl]="InsertForm.controls['INSERT_COMPANY_CODE']">
+            </div>
+              <div class="form-group col-sm-4 small">  
+              <label for="inputEmail4">ROUTE_TYPE</label>
+              <input type="number" 
+              class="form-control form-control-sm" 
+              id="INSERT_ROUTE_TYPE"
+              [formControl]="InsertForm.controls['INSERT_ROUTE_TYPE']">
+            </div>
+              <div class="form-group col-sm-4 small"> 
+              <label for="inputEmail4">SERVICE_MODE</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_SERVICE_MODE"
+              [formControl]="InsertForm.controls['INSERT_SERVICE_MODE']"> 
+            </div>
+          </div>
+          <div class="alert alert-warning d-flex align-items-center" role="alert" 
+          *ngIf = "!InsertForm.controls['INSERT_COMPANY_CODE'].valid || !InsertForm.controls['INSERT_ROUTE_TYPE'].valid || !InsertForm.controls['INSERT_SERVICE_MODE'].valid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+              Please make sure All Input is no empty
+            </div>
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">SPECIAL_TYPE</label>
+              <input type="number" 
+              class="form-control form-control-sm" 
+              id="INSERT_SPECIAL_TYPE"
+              [formControl]="InsertForm.controls['INSERT_SPECIAL_TYPE']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">JOURNEY_TIME</label>
+              <input type="number" 
+              class="form-control form-control-sm" 
+              id="INSERT_JOURNEY_TIME"
+              [formControl]="InsertForm.controls['INSERT_JOURNEY_TIME']">
+            </div> 
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">FULL_FARE</label>
+              <input type="number" 
+              class="form-control form-control-sm" 
+              id="INSERT_FULL_FARE"
+              [formControl]="InsertForm.controls['INSERT_FULL_FARE']">
+            </div>
+          </div>
+          <div class="alert alert-warning d-flex align-items-center" role="alert" 
+          *ngIf = "!InsertForm.controls['INSERT_SPECIAL_TYPE'].valid || !InsertForm.controls['INSERT_JOURNEY_TIME'].valid || !InsertForm.controls['INSERT_FULL_FARE'].valid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+              Please make sure All Input is no empty
+            </div>
+          </div>
+          <br> 
+          <div class="form-row">
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">LOC_START_NAMEC</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_LOC_START_NAMEC"
+              [formControl]="InsertForm.controls['INSERT_LOC_START_NAMEC']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">LOC_START_NAMES</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_LOC_START_NAMES"
+              [formControl]="InsertForm.controls['INSERT_LOC_START_NAMES']">
+            </div>
+            <div class="form-group col-sm-4 small"> 
+              <label for="inputEmail4">LOC_START_NAMEE</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_LOC_START_NAMEE"
+              [formControl]="InsertForm.controls['INSERT_LOC_START_NAMEE']">
+            </div>
+          </div> 
+          <div class="alert alert-warning d-flex align-items-center" role="alert" 
+          *ngIf = "!InsertForm.controls['INSERT_LOC_START_NAMEC'].valid || !InsertForm.controls['INSERT_LOC_START_NAMES'].valid || !InsertForm.controls['INSERT_LOC_START_NAMEE'].valid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+              Please make sure All Input is no empty
+            </div>
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">LOC_END_NAMEC</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_LOC_END_NAMEC"
+              [formControl]="InsertForm.controls['INSERT_LOC_END_NAMEC']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">LOC_END_NAMES</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_LOC_END_NAMES"
+              [formControl]="InsertForm.controls['INSERT_LOC_END_NAMES']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">LOC_END_NAMEE</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_LOC_END_NAMEE"
+              [formControl]="InsertForm.controls['INSERT_LOC_END_NAMEE']">
+            </div>
+          </div>
+          <div class="alert alert-warning d-flex align-items-center" role="alert" 
+          *ngIf = "!InsertForm.controls['INSERT_LOC_END_NAMEC'].valid || !InsertForm.controls['INSERT_LOC_END_NAMES'].valid || !InsertForm.controls['INSERT_LOC_END_NAMEE'].valid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+              Please make sure All Input is no empty
+            </div>
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">HYPERLINK_C</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_HYPERLINK_C"
+              [formControl]="InsertForm.controls['INSERT_HYPERLINK_C']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">HYPERLINK_S</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_HYPERLINK_S"
+              [formControl]="InsertForm.controls['INSERT_HYPERLINK_S']">
+            </div>
+            <div class="form-group col-sm-4 small">
+              <label for="inputEmail4">HYPERLINK_E</label>
+              <input type="text" 
+              class="form-control form-control-sm" 
+              id="INSERT_HYPERLINK_E"
+              [formControl]="InsertForm.controls['INSERT_HYPERLINK_E']">
+            </div>
+          </div>
+          <div class="alert alert-warning d-flex align-items-center" role="alert" 
+          *ngIf = "!InsertForm.controls['INSERT_HYPERLINK_C'].valid || !InsertForm.controls['INSERT_HYPERLINK_S'].valid || !InsertForm.controls['INSERT_HYPERLINK_E'].valid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div>
+              Please make sure All Input is no empty
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Insert</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
